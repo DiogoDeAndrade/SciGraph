@@ -2,7 +2,7 @@
 
 SciGraph is a library for Unity to create realtime graphs, mainly for scientific visualization.
 
-![alt text](demo/screenshot.png "Screenshot")
+![alt text](Demo/screenshot.png "Screenshot")
 
 ## Features
 
