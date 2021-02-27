@@ -10,6 +10,7 @@ namespace SciGraph
     {
         public Color textColor = Color.white;
         public float textSize = 10;
+        public bool  sort = true;
 
         struct LegendElem
         {
@@ -72,6 +73,23 @@ namespace SciGraph
             boxInsideRT.sizeDelta = new Vector2(textSize * 0.9f, textSize * 0.9f);
 
             legend.Add(newLegend);
+
+            if (sort)
+            {
+                legend.Sort((l1, l2) => l1.name.CompareTo(l2.name));
+
+                // Remove elements from parent and add them in the order
+                foreach (var elem in legend)
+                {
+                    elem.layoutGroup.SetParent(null);
+                }
+                foreach (var elem in legend)
+                {
+                    elem.layoutGroup.SetParent(rectTransform.transform);
+                }
+            }
+
+
             dirty = true;
         }
 
