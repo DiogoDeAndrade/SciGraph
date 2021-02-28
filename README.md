@@ -9,6 +9,7 @@ SciGraph is a library for Unity to create realtime graphs, mainly for scientific
 * Line graph
 * Histogram
 * Scatter plot
+* Heatmap
 * All can be dynamic or static
 * All can have subgraphs to display information from multiple sources
 * No prefabs necessary, code builds all the UI based on the size of the container and the parameters of the given graph
@@ -21,7 +22,7 @@ These graphs make use of [NaughtyAttributes] and [UnityUIExtensions], and are re
 
 ## Use
 
-You can add any of the three primary Monobehaviours (LineGraph, HistGraph or ScatterGraph) to any object.
+You can add any of the three primary Monobehaviours (LineGraph, HistGraph, ScatterGraph or Heatmap) to any object.
 Loading data into them is done through the C# API.
 
 ## Credits
