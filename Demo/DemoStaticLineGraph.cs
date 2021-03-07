@@ -40,10 +40,5 @@ namespace SciGraph.Demo
             lineGraph.SetData(graph2, data2);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }
