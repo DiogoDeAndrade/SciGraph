@@ -14,10 +14,14 @@ namespace SciGraph
     [RequireComponent(typeof(Image))]
     public class LineGraph : MonoBehaviour
     {
+        public enum CurrentValueAlign { Left, Center, Right };
+
         public bool         background = true;
         [ShowIf("background")]
         public Color        backgroundColor = new Color(0.0f, 0.0f, 0.0f, 0.85f);
         public bool         displayCurrentValue = false;
+        [ShowIf("displayCurrentValue")]
+        public CurrentValueAlign    displayCurrentValueAlign = CurrentValueAlign.Left;
         public bool         displayLegend = false;
         [ShowIf("displayLegend")]
         public Vector2      legendOffset = Vector2.zero;
@@ -151,6 +155,22 @@ namespace SciGraph
             subgraph.lineRenderer = GraphUtils.CreateLineRenderer(name, color, graphingArea);
             subgraph.currentValueLine = GraphUtils.CreateLineRenderer("Current " + name, new Color(color.r, color.g, color.b, 0.25f), graphingArea);
             subgraph.currentValueLabel = GraphUtils.CreateTextRenderer("Value" + name, color, labelTextSize, graphingArea);
+            switch (displayCurrentValueAlign)
+            {
+                case CurrentValueAlign.Left:
+                    subgraph.currentValueLabel.alignment = TextAlignmentOptions.Center;
+                    subgraph.currentValueLabel.alignment = TextAlignmentOptions.Right;
+                    break;
+                case CurrentValueAlign.Center:
+                    subgraph.currentValueLabel.alignment = TextAlignmentOptions.Center;
+                    break;
+                case CurrentValueAlign.Right:
+                    subgraph.currentValueLabel.alignment = TextAlignmentOptions.Center;
+                    subgraph.currentValueLabel.alignment = TextAlignmentOptions.Left;
+                    break;
+                default:
+                    break;
+            }
             subgraph.currentValueLabelRT = subgraph.currentValueLabel.GetComponent<RectTransform>();
 
             if (subGraphs == null) subGraphs = new List<SubLineGraph>();
@@ -347,7 +367,20 @@ namespace SciGraph
                         };
 
                         sg.currentValueLabel.text = string.Format("{0:" + labelFormatY + "}", valueY);
-                        sg.currentValueLabelRT.anchoredPosition = new Vector2(-5, y);
+                        switch (displayCurrentValueAlign)
+                        {
+                            case CurrentValueAlign.Left:
+                                sg.currentValueLabelRT.anchoredPosition = new Vector2(-5, y);
+                                break;
+                            case CurrentValueAlign.Center:
+                                sg.currentValueLabelRT.anchoredPosition = new Vector2(width * 0.5f, y);
+                                break;
+                            case CurrentValueAlign.Right:
+                                sg.currentValueLabelRT.anchoredPosition = new Vector2(width, y);
+                                break;
+                            default:
+                                break;
+                        }   
                     }
                 }
                 else

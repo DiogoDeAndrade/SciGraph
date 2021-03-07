@@ -414,7 +414,7 @@ namespace SciGraph
         {
             if (useBinFixedRange) return binRange;
 
-            var subgraph = subGraphs[binMainSubgraph];
+/*            var subgraph = subGraphs[binMainSubgraph];
             if (subgraph.data != null)
             {
                 Vector2 r = new Vector2();
@@ -422,7 +422,7 @@ namespace SciGraph
                 r.y = subgraph.data[subgraph.data.Length - 1].range.y;
 
                 return r;
-            }
+            }*/
 
             return Vector2.zero;
         }
