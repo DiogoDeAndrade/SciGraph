@@ -24,6 +24,8 @@ namespace SciGraph
         public float        titleTextSize = 14;
         public bool         displayPercentange = false;
         [ShowIf("displayPercentange")]
+        public bool         displayAbsoluteValue = false;
+        [ShowIf("displayPercentange")]
         public Color        percentageColor = Color.yellow;
         [ShowIf("displayPercentange")]
         public float        percentageTextSize = 14;
@@ -229,7 +231,11 @@ namespace SciGraph
                     {
                         category.percentageText.gameObject.SetActive(true);
                         category.percentageTextRT.anchoredPosition = pos;
-                        category.percentageText.text = string.Format(percentageFormat, normValue * 100.0f);
+
+                        string txt = string.Format(percentageFormat, normValue * 100.0f);
+                        if (displayAbsoluteValue) txt += "\n(" + category.data + ")";
+                        category.percentageText.text = txt;
+
                     }
                     else
                     {

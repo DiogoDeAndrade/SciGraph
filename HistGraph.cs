@@ -352,7 +352,7 @@ namespace SciGraph
             for (int i = 0; i < binLabels.Count; i++)
             {
                 float midPoint = (subGraphs[0].data[i].range.x + subGraphs[0].data[i].range.y) * 0.5f;
-                binLabels[i].label.text = string.Format("{0:0.00}", midPoint);
+                binLabels[i].label.text = string.Format("{0:" + labelFormatX + "}", midPoint);
                 binLabels[i].labelRT.anchoredPosition = new Vector2(tdx * (i + 0.5f) + padding * 0.5f, 0);
             }
 
@@ -374,10 +374,6 @@ namespace SciGraph
             GameObject newObj = new GameObject();
             newObj.name = string.Format("Bin {0:000}", index);
             newObj.transform.SetParent(graphingArea.transform);
-
-            GameObject newTextObj = new GameObject();
-            newTextObj.name = string.Format("Bin Text {0:000}", index);
-            newTextObj.transform.SetParent(newObj.transform);
 
             var newBinObj = new BinObj();
             newBinObj.rect = newObj.AddComponent<Image>();
@@ -413,16 +409,6 @@ namespace SciGraph
         public Vector2 GetRange()
         {
             if (useBinFixedRange) return binRange;
-
-/*            var subgraph = subGraphs[binMainSubgraph];
-            if (subgraph.data != null)
-            {
-                Vector2 r = new Vector2();
-                r.x = subgraph.data[0].range.x;
-                r.y = subgraph.data[subgraph.data.Length - 1].range.y;
-
-                return r;
-            }*/
 
             return Vector2.zero;
         }
