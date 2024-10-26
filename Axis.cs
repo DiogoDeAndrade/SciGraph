@@ -69,7 +69,7 @@ namespace SciGraph
                     labelMinRT.pivot = new Vector2(0.0f, 1.0f);
                     labelMin.alignment = TextAlignmentOptions.TopLeft;
                     labelMin.overflowMode = TextOverflowModes.Overflow;
-                    labelMin.enableWordWrapping = false;
+                    labelMin.textWrappingMode = TextWrappingModes.NoWrap;
 
                     labelMaxRT.offsetMin = labelMaxRT.offsetMax = Vector2.zero;
                     labelMaxRT.anchorMin = new Vector2(0.0f, 1.0f);
@@ -77,7 +77,7 @@ namespace SciGraph
                     labelMaxRT.pivot = new Vector2(1.0f, 1.0f);
                     labelMax.alignment = TextAlignmentOptions.TopRight;
                     labelMax.overflowMode = TextOverflowModes.Overflow;
-                    labelMax.enableWordWrapping = false;
+                    labelMax.textWrappingMode = TextWrappingModes.NoWrap;
 
                     labelAxisRT.offsetMin = labelAxisRT.offsetMax = Vector2.zero;
                     labelAxisRT.anchorMin = new Vector2(0.0f, 1.0f);
@@ -88,7 +88,7 @@ namespace SciGraph
                     labelAxisText.alignment = TextAlignmentOptions.Center;
                     labelAxisText.alignment = TextAlignmentOptions.Top;
                     labelAxisText.overflowMode = TextOverflowModes.Overflow;
-                    labelAxisText.enableWordWrapping = false;
+                    labelAxisText.textWrappingMode = TextWrappingModes.NoWrap;
                     break;
                 case Orientation.Vertical:
                     rectTransform.anchorMin = new Vector2(0.0f, 0.0f);
@@ -102,7 +102,7 @@ namespace SciGraph
                     labelMinRT.anchoredPosition = new Vector2(-textSize * 0.5f, 0);
                     labelMin.alignment = TextAlignmentOptions.BottomRight;
                     labelMin.overflowMode = TextOverflowModes.Overflow;
-                    labelMin.enableWordWrapping = false;
+                    labelMin.textWrappingMode = TextWrappingModes.NoWrap;
 
                     labelMaxRT.offsetMin = labelMaxRT.offsetMax = Vector2.zero;
                     labelMaxRT.anchorMin = new Vector2(1.0f, 1.0f);
@@ -111,7 +111,7 @@ namespace SciGraph
                     labelMaxRT.pivot = new Vector2(1.0f, 1.0f);
                     labelMax.alignment = TextAlignmentOptions.TopRight;
                     labelMax.overflowMode = TextOverflowModes.Overflow;
-                    labelMax.enableWordWrapping = false;
+                    labelMax.textWrappingMode = TextWrappingModes.NoWrap;
 
                     labelAxisRT.offsetMin = labelAxisRT.offsetMax = Vector2.zero;
                     labelAxisRT.anchorMin = new Vector2(0.0f, 0.0f);
@@ -122,7 +122,7 @@ namespace SciGraph
                     labelAxisRT.rotation = Quaternion.Euler(0, 0, 90);
                     labelAxisText.alignment = TextAlignmentOptions.Center;
                     labelAxisText.overflowMode = TextOverflowModes.Overflow;
-                    labelAxisText.enableWordWrapping = false;
+                    labelAxisText.textWrappingMode = TextWrappingModes.NoWrap;
                     break;
             }
         }

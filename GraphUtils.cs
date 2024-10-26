@@ -43,7 +43,7 @@ namespace SciGraph
             text.fontSize = defaultTextSize;
             text.alignment = TextAlignmentOptions.Center;
             text.alignment = TextAlignmentOptions.Right;
-            text.enableWordWrapping = false;
+            text.textWrappingMode = TextWrappingModes.NoWrap;
             text.overflowMode = TextOverflowModes.Overflow;
 
             return text;
